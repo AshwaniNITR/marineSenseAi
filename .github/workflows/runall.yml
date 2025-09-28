@@ -1,0 +1,14 @@
+name: Trigger Vercel RunAll
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # every 15 minutes
+  workflow_dispatch: # allows manual trigger if needed
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel API
+        run: |
+          curl -s https://marine-sense-ai.vercel.app/api/runall
